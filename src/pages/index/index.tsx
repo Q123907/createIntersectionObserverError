@@ -1,61 +1,29 @@
-import { Component, PropsWithChildren } from 'react'
-import { View, Button, Text } from '@tarojs/components'
-import { observer, inject } from 'mobx-react'
+import { View, Button, Text } from "@tarojs/components";
+import { observer, inject } from "mobx-react";
 
-import './index.css'
+import "./index.css";
+import C1 from "../../components/C1";
+import C2 from "../../components/C2";
+import store from "../../store/counter";
 
-type PageStateProps = {
-  store: {
-    counterStore: {
-      counter: number,
-      increment: Function,
-      decrement: Function,
-      incrementAsync: Function
-    }
-  }
-}
-
-interface Index {
-  props: PageStateProps;
-}
-
-@inject('store')
-@observer
-class Index extends Component<PropsWithChildren> {
-  componentDidMount () { }
-
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
-
-  increment = () => {
-    const { counterStore } = this.props.store
-    counterStore.increment()
-  }
-
-  decrement = () => {
-    const { counterStore } = this.props.store
-    counterStore.decrement()
-  }
-
-  incrementAsync = () => {
-    const { counterStore } = this.props.store
-    counterStore.incrementAsync()
-  }
-
-  render () {
-    const { counterStore: { counter } } = this.props.store
-    return (
-      <View className='index'>
-        <Button onClick={this.increment}>+</Button>
-        <Button onClick={this.decrement}>-</Button>
-        <Button onClick={this.incrementAsync}>Add Async</Button>
-        <Text>{counter}</Text>
-      </View>
-    )
-  }
-}
-
-export default Index
+const TableList = observer(({}) => {
+  console.log("store", store);
+  return (
+    <View>
+      <Button onClick={store.increment}>+</Button>
+      <Button onClick={store.decrement}>-</Button>
+      <Button onClick={store.incrementAsync}>Add Async</Button>
+      <Text>{store.obj.counter}</Text>
+      <C1></C1>
+      <C2></C2>
+      <Button
+        onClick={() => {
+          store.obj = { ...store.obj };
+        }}
+      >
+        克隆
+      </Button>
+    </View>
+  );
+});
+export default TableList;
