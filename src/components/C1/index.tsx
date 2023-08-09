@@ -1,9 +1,9 @@
 import { View, Button, Text } from "@tarojs/components";
-import { observer, inject } from "mobx-react";
-import store from "../../store/counter";
 
-interface propsType {}
-const C1 = observer(({}) => {
+import store from "../../store/counter";
+import { observer } from "mobx-react-lite";
+
+const C1 = ({}) => {
   console.log("storeC1", store);
   return (
     <View>
@@ -12,5 +12,5 @@ const C1 = observer(({}) => {
       <Text>{store.obj.counterC1}</Text>
     </View>
   );
-});
-export default C1;
+};
+export default observer(C1);

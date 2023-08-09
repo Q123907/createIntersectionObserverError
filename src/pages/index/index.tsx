@@ -1,12 +1,11 @@
 import { View, Button, Text } from "@tarojs/components";
-import { observer, inject } from "mobx-react";
-
+import { observer } from "mobx-react-lite";
 import "./index.css";
 import C1 from "../../components/C1";
 import C2 from "../../components/C2";
 import store from "../../store/counter";
 
-const TableList = observer(({}) => {
+const Index = () => {
   console.log("store", store);
   return (
     <View>
@@ -25,5 +24,5 @@ const TableList = observer(({}) => {
       </Button>
     </View>
   );
-});
-export default TableList;
+};
+export default observer(Index);

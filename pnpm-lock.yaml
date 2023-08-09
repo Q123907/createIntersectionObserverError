@@ -47,11 +47,14 @@ dependencies:
     specifier: 3.6.9
     version: 3.6.9(@types/react@18.0.0)(postcss@8.4.18)
   mobx:
-    specifier: ^4.8.0
-    version: 4.8.0
+    specifier: ^6.10.0
+    version: 6.10.0
   mobx-react:
     specifier: ^6.1.4
-    version: 6.1.4(mobx@4.8.0)(react@18.0.0)
+    version: 6.1.4(mobx@6.10.0)(react@18.0.0)
+  mobx-react-lite:
+    specifier: ^4.0.3
+    version: 4.0.3(mobx@6.10.0)(react-dom@18.0.0)(react@18.0.0)
   react:
     specifier: ^18.0.0
     version: 18.0.0
@@ -10385,29 +10388,48 @@ packages:
   /mobile-detect@1.4.5:
     resolution: {integrity: sha512-yc0LhH6tItlvfLBugVUEtgawwFU2sIe+cSdmRJJCTMZ5GEJyLxNyC/NIOAOGk67Fa8GNpOttO3Xz/1bHpXFD/g==}
 
-  /mobx-react-lite@1.5.2(mobx@4.8.0)(react@18.0.0):
+  /mobx-react-lite@1.5.2(mobx@6.10.0)(react@18.0.0):
     resolution: {integrity: sha512-PyZmARqqWtpuQaAoHF5pKX7h6TKNLwq6vtovm4zZvG6sEbMRHHSqioGXSeQbpRmG8Kw8uln3q/W1yMO5IfL5Sg==}
     peerDependencies:
       mobx: ^4.0.0 || ^5.0.0
       react: ^16.8.0
     dependencies:
-      mobx: 4.8.0
+      mobx: 6.10.0
       react: 18.0.0
     dev: false
 
-  /mobx-react@6.1.4(mobx@4.8.0)(react@18.0.0):
+  /mobx-react-lite@4.0.3(mobx@6.10.0)(react-dom@18.0.0)(react@18.0.0):
+    resolution: {integrity: sha512-wEE1oT5zvDdvplG4HnRrFgPwg5GFVVrEtl42Er85k23zeu3om8H8wbDPgdbQP88zAihVsik6xJfw6VnzUl8fQw==}
+    peerDependencies:
+      mobx: ^6.9.0
+      react: ^16.8.0 || ^17 || ^18
+      react-dom: '*'
+      react-native: '*'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      mobx: 6.10.0
+      react: 18.0.0
+      react-dom: 18.0.0(react@18.0.0)
+      use-sync-external-store: 1.2.0(react@18.0.0)
+    dev: false
+
+  /mobx-react@6.1.4(mobx@6.10.0)(react@18.0.0):
     resolution: {integrity: sha512-wzrJF1RflhyLh8ne4FJfMbG8ZgRFmZ62b4nbyhJzwQpAmrkSnSsAWG9mIff4ffV/Q7OU+uOYf7rXvSmiuUe4cw==}
     peerDependencies:
       mobx: ^4.0.0 || ^5.0.0
       react: ^16.8.0 || 16.9.0-alpha.0
     dependencies:
-      mobx: 4.8.0
-      mobx-react-lite: 1.5.2(mobx@4.8.0)(react@18.0.0)
+      mobx: 6.10.0
+      mobx-react-lite: 1.5.2(mobx@6.10.0)(react@18.0.0)
       react: 18.0.0
     dev: false
 
-  /mobx@4.8.0:
-    resolution: {integrity: sha512-uR6FnrK50UEbV+zTXkOI+R0pAMb7xA5mkAWnKTMBcN6hAh57qAa9r0XMvsiPgpb8dS3Kw1x0sNhrrUNUcM+Pug==}
+  /mobx@6.10.0:
+    resolution: {integrity: sha512-WMbVpCMFtolbB8swQ5E2YRrU+Yu8iLozCVx3CdGjbBKlP7dFiCSuiG06uea3JCFN5DnvtAX7+G5Bp82e2xu0ww==}
     dev: false
 
   /ms@2.0.0:
@@ -13932,6 +13954,14 @@ packages:
     resolution: {integrity: sha512-0kQLIzG4fdk/G5NONku64rSH/x32NOA39LVQqlK8Le6lvTF6GGRJpqaQFGgU+CLwySIqBSMdwYM0sYcW9f6P4A==}
     engines: {node: '>= 4'}
     dev: true
+
+  /use-sync-external-store@1.2.0(react@18.0.0):
+    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.0.0
+    dev: false
 
   /use@3.1.1:
     resolution: {integrity: sha512-cwESVXlO3url9YWlFW/TA9cshCEhtu7IKJ/p5soJ/gGpj7vbvFrAY/eIioQ6Dw23KjZhYgiIo8HOs1nQ2vr/oQ==}
